@@ -69,6 +69,7 @@ target_link_libraries(roboteam_proto
         # since Publishers/subscribers are templates these 2 libraries need to be PUBLIC
         PUBLIC ${ZeroMQ_LIBRARIES}
         PUBLIC ${ZMQPP_LIBRARIES}
+        gtest
         )
 
 target_include_directories(roboteam_proto
@@ -93,14 +94,16 @@ if(APPLE)
             PUBLIC roboteam_proto
             PUBLIC roboteam_utils
             /usr/local/lib/libgtest.a
-            /usr/local/lib/libgtest_main.a)
+            /usr/local/lib/libgtest_main.a
+            gtest)
 endif()
 
 if(UNIX AND NOT APPLE)
     target_link_libraries(proto_tests
             PUBLIC roboteam_proto
             PUBLIC roboteam_utils
-            PRIVATE gcov)
+            PRIVATE gcov
+            gtest)
 endif()
 
 target_include_directories(proto_tests
