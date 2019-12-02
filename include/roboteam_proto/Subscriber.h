@@ -8,7 +8,7 @@
 #include <zmqpp/reactor.hpp>
 #include <google/protobuf/message.h>
 #include <functional>
-#include <roboteam_utils/constants.h>
+// #include <roboteam_utils/constants.h>
 #include "Channel.h"
 #include "Channels.h"
 
