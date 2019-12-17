@@ -17,6 +17,7 @@ message RobotFeedback {
     float y_vel = 12;
     bool hasLockedWheel = 13;
     float signalStrength = 14;
+    float time = 15;
 }
 
 
