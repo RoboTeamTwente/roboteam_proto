@@ -30,8 +30,8 @@ class Subscriber {
  private:
   Channel channel;
   zmqpp::context context;
-  zmqpp::socket * socket;
-  zmqpp::reactor * reactor;
+  zmqpp::socket * socket = nullptr;
+  zmqpp::reactor * reactor = nullptr;
   std::thread t1;
   bool running;
 
@@ -136,13 +136,16 @@ class Subscriber {
    * Then we safely close the socket and delete the pointers.
    */
   ~Subscriber() {
-    std::cout << "[Roboteam_proto] Stopping subscriber for " << channel.name << std::endl;
-    running = false;
-    t1.join();
-    reactor->remove(*socket);
-    socket->close();
-    delete socket;
-    delete reactor;
+      if (running) {
+          std::cout << "[Roboteam_proto] Stopping subscriber for " << channel.name << std::endl;
+          running = false;
+          t1.join();
+          reactor->remove(*socket);
+          socket->close();
+          delete socket;
+          delete reactor;
+          std::cout << "[Roboteam_proto] stopped subscriber succesfully for " << channel.name << std::endl;
+      }
   }
 
 
