@@ -19,12 +19,13 @@ else()
     message (FATAL_ERROR "Cannot find Protobuf")
 endif()
 
+# Find all the proto sourcefiles
 file(GLOB_RECURSE PROTO_SOURCES proto/*)
 
 # Generate the .h and .cxx files
 protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS
         ${PROTO_SOURCES}
-    )
+        )
 
 # Add an executable
 add_library(roboteam_proto SHARED
