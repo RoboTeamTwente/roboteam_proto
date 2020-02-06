@@ -1,0 +1,7 @@
+syntax = "proto3";
+package proto_iface;
+
+message InterfaceUpdate {
+    bool isYellow = 1;
+    bool isBlue = 2;
+}

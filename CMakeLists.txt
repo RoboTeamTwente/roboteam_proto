@@ -19,46 +19,12 @@ else()
     message (FATAL_ERROR "Cannot find Protobuf")
 endif()
 
+file(GLOB_RECURSE PROTO_SOURCES proto/*)
+
 # Generate the .h and .cxx files
 protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS
-        proto/Vector2f.proto
-        proto/Referee.proto
-        proto/RobotCommand.proto
-        proto/RobotFeedback.proto
-        proto/World.proto
-        proto/StringEntry.proto
-        proto/Setting.proto
-
-        proto/FieldCircularArc.proto
-        proto/FieldLineSegment.proto
-        proto/WorldBall.proto
-        proto/WorldRobot.proto
-
-        #field
-        proto/GeometryData.proto
-        proto/GeometryCameraCalibration.proto
-        proto/GeometryFieldSize.proto
-
-        #demo
-        proto/DemoRobot.proto
-
-        #grsim
-        proto/grSim_Commands.proto
-        proto/grSim_Packet.proto
-        proto/grSim_Replacement.proto
-
-        #mimir
-        proto/mimir_robotcommand.proto
-
-        # ssl input packets
-        proto/messages_robocup_ssl_detection.proto
-        proto/messages_robocup_ssl_game_event.proto
-        proto/messages_robocup_ssl_geometry.proto
-        proto/messages_robocup_ssl_geometry_legacy.proto
-        proto/messages_robocup_ssl_referee.proto
-        proto/messages_robocup_ssl_wrapper.proto
-        proto/messages_robocup_ssl_wrapper_legacy.proto
-        )
+        ${PROTO_SOURCES}
+    )
 
 # Add an executable
 add_library(roboteam_proto SHARED

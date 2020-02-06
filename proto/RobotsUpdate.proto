@@ -1,0 +1,8 @@
+syntax = "proto3";
+package proto_iface;
+
+import "Robot.proto";
+
+message RobotsUpdate {
+    repeated Robot robots = 1;
+}
