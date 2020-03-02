@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package proto;
+
+import "Vector2f.proto";
+
+message DrawCall {
+     uint32 visual = 1;
+     repeated Vector2f points = 2;
+     uint32 r = 3;
+     uint32 g = 4;
+     uint32 b = 5;
+     uint32 robot_id = 6;
+     uint32 drawing_method = 7;
+     double width = 8;
+     double height = 9;
+     double strokeWidth = 10;
+}
