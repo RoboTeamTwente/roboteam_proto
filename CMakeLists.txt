@@ -15,13 +15,6 @@ find_package(zmqpp 4.1.2 REQUIRED)
 # for zmq to work on mac
 set(ENABLE_DRAFTS OFF)
 
-# check if protobuf was found
-if(PROTOBUF_FOUND)
-    message ("Protobuf 3.9.1 found")
-else()
-    message (FATAL_ERROR "Cannot find Protobuf")
-endif()
-
 # Generate the .h and .cxx files
 protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS
         proto/Vector2f.proto
@@ -95,22 +88,12 @@ add_executable(proto_tests
         )
 
 
-if(APPLE)
-    target_link_libraries(proto_tests
-            PUBLIC roboteam_proto
-            PUBLIC roboteam_utils
-            /usr/local/lib/libgtest.a
-            /usr/local/lib/libgtest_main.a)
-endif()
-
-if(UNIX AND NOT APPLE)
-    target_link_libraries(proto_tests
-            PUBLIC roboteam_proto
-            PUBLIC roboteam_utils
-            PRIVATE gcov
-            PRIVATE gtest
-            )
-endif()
+target_link_libraries(proto_tests
+        PUBLIC roboteam_proto
+        PUBLIC roboteam_utils
+        PRIVATE gcov
+        PRIVATE gtest
+        )
 
 target_include_directories(proto_tests
         INTERFACE include
