@@ -48,7 +48,7 @@ protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS
 
         # New interface
         ${PROTO_BASE_PATH}/UiOptions.proto
-        ${PROTO_BASE_PATH}/UiMessage.proto
+        ${PROTO_BASE_PATH}/Handshake.proto
         )
 
 add_library(roboteam_proto STATIC

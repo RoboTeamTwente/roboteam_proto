@@ -26,5 +26,5 @@ message State {
 
 message ModuleState {
     State system_state = 1;
-    repeated UiMessage handshakes = 2;
+    repeated Handshake handshakes = 2;
 }
