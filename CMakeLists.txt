@@ -51,6 +51,7 @@ protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS
         ${PROTO_BASE_PATH}/Handshake.proto
 
         ${PROTO_BASE_PATH}/ObserverSettings.proto
+        ${PROTO_BASE_PATH}/RobotHubSettings.proto
         )
 
 add_library(roboteam_proto STATIC
