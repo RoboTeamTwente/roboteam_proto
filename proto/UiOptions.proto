@@ -30,7 +30,7 @@ message TextField {
     string text = 1;
 }
 
-message UiOption {
+message UiOptionDeclaration {
     string name = 1;
     oneof ui_elements {
         Slider slider = 2;
@@ -40,9 +40,11 @@ message UiOption {
         TextField textfield = 6;
     }
 }
-
-message PossibleUiValue {
-    oneof ui_value {
+message UiOptionDeclarations{
+    repeated UiOptionDeclaration options = 1;
+}
+message UiValue {
+    oneof value {
         float float_value = 1;
         bool bool_value = 2;
         int64 integer_value = 3;
@@ -50,7 +52,7 @@ message PossibleUiValue {
     }
 }
 
-message UiSettings {
+message UiValues {
     // maps UiOption::name to the value it currently contains.
-    map<string, PossibleUiValue> ui_values = 1;
+    map<string, UiValue> ui_values = 1;
 }
