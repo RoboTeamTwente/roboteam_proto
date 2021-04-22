@@ -39,6 +39,7 @@ message UiOptionDeclaration {
         RadioButton radiobutton = 5;
         TextField textfield = 6;
     }
+    bool mutable = 7; //If set to true, the module itself can edit the button, and not just the user.
 }
 message UiOptionDeclarations{
     repeated UiOptionDeclaration options = 1;
