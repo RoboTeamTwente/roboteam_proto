@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package proto;
+
+message ObserverSettings {
+    string visionIp = 1;
+    uint32 visionPort = 2;
+    string refereeIp = 3;
+    uint32 refereePort = 4;
+}
