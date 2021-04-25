@@ -32,14 +32,15 @@ message TextField {
 
 message UiOptionDeclaration {
     string name = 1;
+    bool is_mutable = 2; //If set to true, the module itself can edit the button, and not just the user.
+    string description = 3;//description of what this button does
     oneof ui_elements {
-        Slider slider = 2;
-        Checkbox checkbox = 3;
-        Dropdown dropdown = 4;
-        RadioButton radiobutton = 5;
-        TextField textfield = 6;
+        Slider slider = 4;
+        Checkbox checkbox = 5;
+        Dropdown dropdown = 6;
+        RadioButton radiobutton = 7;
+        TextField textfield = 8;
     }
-    bool is_mutable = 7; //If set to true, the module itself can edit the button, and not just the user.
 }
 message UiOptionDeclarations{
     repeated UiOptionDeclaration options = 1;
