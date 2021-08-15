@@ -2,6 +2,7 @@ syntax = "proto3";
 
 import "World.proto";
 import "RobotParameters.proto";
+import "JoystickData.proto";
 
 import "messages_robocup_ssl_wrapper.proto";
 import "messages_robocup_ssl_referee.proto";

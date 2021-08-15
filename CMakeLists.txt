@@ -51,6 +51,7 @@ protobuf_generate_cpp(PROTO_SRCS PROTO_HDRS
         # New interface
         ${PROTO_BASE_PATH}/UiOptions.proto
         ${PROTO_BASE_PATH}/Handshake.proto
+        ${PROTO_BASE_PATH}/JoystickData.proto
 
 
         # SSL Simulation Protocol - Robocup 2021
