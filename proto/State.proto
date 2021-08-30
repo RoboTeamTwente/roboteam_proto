@@ -2,6 +2,7 @@ syntax = "proto3";
 
 import "World.proto";
 import "RobotParameters.proto";
+import "JoystickData.proto";
 
 import "messages_robocup_ssl_wrapper.proto";
 import "messages_robocup_ssl_referee.proto";
@@ -23,15 +24,8 @@ message State {
     repeated SSL_Referee processed_referee_packets = 11;
 }
 
-message SystemState{
-    State state = 1;
-    UiSettings ui_settings = 2;
-}
 
-message HandshakeState {
-    State state = 1;
-}
 message ModuleState {
-    SystemState system_state = 1;
+    State system_state = 1;
     repeated Handshake handshakes = 2;
 }

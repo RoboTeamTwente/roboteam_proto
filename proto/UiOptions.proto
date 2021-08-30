@@ -12,17 +12,14 @@ message Slider {
 
 message Checkbox {
     string text = 1;
-    bool default = 2;
 }
 
 message Dropdown {
     string text = 1;
-    int64 default = 2;
     repeated string options = 3;
 }
 
 message RadioButton {
-    int64 default = 1;
     repeated string options = 2;
 }
 
@@ -30,19 +27,25 @@ message TextField {
     string text = 1;
 }
 
-message UiOption {
-    string name = 1;
+message UiOptionDeclaration {
+    string path = 1; // Specifies structure-wise where this should be rendered. The interface should parse this into a tree structure and infer where it should be rendered ("/Settings/Networking/Port")
+    bool is_mutable = 2; // If set to true, the module itself can edit the button, and not just the user.
+    string description = 3; // Description of what this button does
     oneof ui_elements {
-        Slider slider = 2;
-        Checkbox checkbox = 3;
-        Dropdown dropdown = 4;
-        RadioButton radiobutton = 5;
-        TextField textfield = 6;
+        Slider slider = 4;
+        Checkbox checkbox = 5;
+        Dropdown dropdown = 6;
+        RadioButton radiobutton = 7;
+        TextField textfield = 8;
     }
-}
 
-message PossibleUiValue {
-    oneof ui_value {
+    UiValue default = 9;
+}
+message UiOptionDeclarations{
+    repeated UiOptionDeclaration options = 1;
+}
+message UiValue {
+    oneof value {
         float float_value = 1;
         bool bool_value = 2;
         int64 integer_value = 3;
@@ -50,7 +53,7 @@ message PossibleUiValue {
     }
 }
 
-message UiSettings {
+message UiValues {
     // maps UiOption::name to the value it currently contains.
-    map<string, PossibleUiValue> ui_values = 1;
+    map<string, UiValue> ui_values = 1;
 }

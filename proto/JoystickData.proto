@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package proto;
+
+message JoystickState { // 0 - 100 values
+  sint32 x = 1;
+  sint32 y = 2;
+  sint32 z = 3;
+}
