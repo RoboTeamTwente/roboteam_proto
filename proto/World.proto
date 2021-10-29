@@ -2,7 +2,7 @@ syntax = "proto3";
 
 import "WorldBall.proto";
 import "WorldRobot.proto";
-import "RobotFeedback.proto"
+import "RobotFeedback.proto";
 package proto;
 
 message World {
