@@ -8,6 +8,7 @@ message Slider {
     float max = 3;
     float interval = 4;
     float default = 5;
+    int32 dpi = 6;
 }
 
 message Checkbox {
