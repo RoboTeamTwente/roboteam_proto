@@ -6,7 +6,7 @@ package proto;
 message RobotCommand {
     uint32 id = 1;
     Vector2f vel = 3;
-    float w = 4;
+    optional float w = 4;
     bool use_angle = 5;
     uint32 dribbler = 6;
 
@@ -15,4 +15,7 @@ message RobotCommand {
 
     bool chip_kick_forced = 9;
     float chip_kick_vel = 10;
+
+    bool should_rotate = 11;
+    bool should_move = 12;
 }
